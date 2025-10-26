@@ -5,7 +5,7 @@ import { createPageUrl } from "@/utils";
 import { LayoutDashboard, Sparkles, FileText, Menu, X, Globe, Crown } from "lucide-react";
 import { User } from "@/api/entities";
 import { Button } from "@/components/ui/button";
-import { LanguageProvider, useLanguage } from "./components/LanguageProvider";
+import { LanguageProvider, useLanguage } from "../components/LanguageProvider";
 import {
   DropdownMenu,
   DropdownMenuContent,
