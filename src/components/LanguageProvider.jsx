@@ -737,7 +737,7 @@ export function LanguageProvider({ children }) {
     return lang;
   };
 
-  const switchLanguage = async (newLang) => {
+   const switchLanguage = async (newLang) => {
     const safeLang = getSafeLanguage(newLang);
     console.log("🔄 [LanguageProvider] Switching language to:", safeLang);
     
@@ -782,4 +782,6 @@ export function LanguageProvider({ children }) {
       {children}
     </LanguageContext.Provider>
   );
-}
+} // ✅ 补上这一行闭合整个组件函数
+
+export default LanguageProvider; // ✅ 可选，但建议加上
