@@ -600,7 +600,7 @@ export function LanguageProvider({ children }) {
           }
         }
       } catch (error) {
-        // User not logged in, use localStorage or default
+        console.log("User not logged in or failed to load");
       } finally {
         setIsReady(true);
       }
