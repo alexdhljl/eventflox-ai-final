@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -13,12 +12,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+// ✅ 把登录保护逻辑移进 React 组件内部
 function LayoutContent({ children }) {
   const location = useLocation();
   const [user, setUser] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, switchLanguage, t } = useLanguage();
 
+  // ✅ 登录保护逻辑
+  useEffect(() => {
+    const localUser = localStorage.getItem("user");
+    if (!localUser) {
+      window.location.href = "/login";
+    }
+  }, []);
+
+  // 加载用户信息（可选）
   useEffect(() => {
     User.me().then(setUser).catch(() => {});
   }, []);
