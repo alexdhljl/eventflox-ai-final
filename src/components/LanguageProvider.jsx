@@ -3,12 +3,9 @@ import { base44 } from "@/api/base44Client";
 
 const translations = {
   zh: {
-    // Navigation
     nav_dashboard: "我的活动",
     nav_create: "AI创建活动",
     nav_reports: "复盘报告",
-    
-    // Dashboard
     dashboard_title: "我的活动",
     dashboard_subtitle: "管理和跟踪所有活动的进展",
     dashboard_total: "总活动数",
@@ -18,8 +15,6 @@ const translations = {
     dashboard_create_first: "创建您的第一个活动",
     you_are_organizer: "您是组织者",
     you_are_participant: "您是参与者",
-    
-    // Create Event Page
     create_title: "AI 智能活动策划",
     create_subtitle: "描述您的活动需求,AI 将为您生成完整的活动方案",
     create_example: "示例描述",
@@ -34,8 +29,6 @@ const translations = {
     create_creating: "正在创建活动...",
     create_success: "创建成功！",
     create_success_redirect: "正在跳转到活动详情页...",
-    
-    // Buttons
     btn_create: "创建活动",
     btn_create_ai: "AI创建活动",
     btn_view_detail: "查看详情",
@@ -55,8 +48,6 @@ const translations = {
     btn_refresh: "刷新",
     btn_back_dashboard: "返回我的活动",
     btn_copy_event: "复制并规划下次活动",
-    
-    // Task Fields
     task_name: "任务名称",
     task_description: "任务描述",
     task_assignee: "负责人",
@@ -66,8 +57,6 @@ const translations = {
     task_status: "任务状态",
     task_details: "任务详情",
     task_optional: "可选",
-    
-    // Task Dialog Actions
     tasks_edit: "编辑任务",
     tasks_claim: "认领任务",
     tasks_submit: "提交方案",
@@ -77,8 +66,6 @@ const translations = {
     solution_text: "方案说明",
     solution_files: "方案附件",
     solution_submitted: "已提交方案",
-
-    // Task Form Labels
     tasks_title: "任务清单",
     tasks_name_label: "任务名称",
     tasks_name_placeholder: "输入任务名称",
@@ -90,8 +77,6 @@ const translations = {
     tasks_status_label: "任务状态",
     tasks_create: "创建任务",
     creating: "创建中...",
-    
-    // Event Status
     status_preparing: "筹备中",
     status_ongoing: "进行中",
     status_completed: "已结束",
@@ -100,8 +85,6 @@ const translations = {
     status_进行中: "进行中",
     status_已结束: "已结束",
     status_已复盘: "已复盘",
-    
-    // Task Status
     status_pending: "待开始",
     status_in_progress: "进行中",
     status_done: "已完成",
@@ -110,19 +93,13 @@ const translations = {
     task_status_ongoing: "进行中",
     task_status_completed: "已完成",
     task_status_delayed: "延期",
-    
-    // Task Stage
     stage_preparation: "筹备阶段",
     stage_execution: "执行阶段",
     stage_review: "复盘阶段",
-    
-    // Task Priority
     priority_low: "低",
     priority_medium: "中",
     priority_high: "高",
     priority_urgent: "紧急",
-    
-    // Event Detail
     event_date: "活动日期",
     event_location: "活动地点",
     event_scale: "活动规模",
@@ -132,8 +109,6 @@ const translations = {
     event_requirements: "特殊需求",
     event_not_found: "活动不存在",
     event_not_found_desc: "无法找到该活动",
-    
-    // Activity Management
     activity_management: "活动管理",
     activity_management_desc: "管理报名和签到功能",
     registration_page: "报名页面",
@@ -145,8 +120,6 @@ const translations = {
     open_in_new_tab: "在新标签页打开",
     how_to_use: "使用说明",
     how_to_use_description: "复制这些链接并通过邮件、网站或社交媒体分享。参与者可以使用这些链接进行报名和签到。",
-    
-    // Registration & Check-in Stats
     stats_title: "报名与签到统计",
     total_registered: "已报名人数",
     total_checked_in: "已签到人数",
@@ -158,13 +131,9 @@ const translations = {
     export_csv: "导出CSV",
     checked_in: "已签到",
     registered_at: "报名时间",
-    
-    // Organizer QR Code
     organizer_qr: "组织者二维码",
     organizer_qr_desc: "扫描此二维码快速访问活动管理后台",
     organizer_qr_note: "此二维码仅供活动组织者使用",
-    
-    // Registration Page
     event_registration: "活动报名",
     register_for_event: "报名参加活动",
     registration_link_title: "活动报名链接",
@@ -201,8 +170,6 @@ const translations = {
     checkin_preview_title: "签到预览",
     checkin_preview_desc: "请于活动当天通过以下页面签到",
     view_checkin_page: "查看签到页面",
-    
-    // Check-in Page
     event_checkin: "活动签到",
     confirm_attendance: "确认到场",
     manual_checkin: "手动签到",
@@ -225,22 +192,16 @@ const translations = {
     enter_checkin_info: "请输入签到信息",
     name_required: "姓名（必填）",
     email_optional: "邮箱（可选）",
-    
-    // Tabs
     tab_tasks: "任务清单",
     tab_messages: "团队沟通",
     tab_files: "文件资料",
     tab_report: "AI复盘",
-    
-    // Task Views
     view_kanban: "看板视图",
     view_list: "列表视图",
     kanban_search: "搜索任务...",
     kanban_filter: "筛选",
     tasks_add: "添加任务",
     task_unclaimed: "未认领",
-    
-    // Reports Page
     reports_title: "AI复盘报告",
     reports_summary: "活动总结",
     reports_highlights: "亮点与成就",
@@ -251,8 +212,6 @@ const translations = {
     reports_generating: "生成中...",
     reports_regenerate: "重新生成",
     reports_ai_description: "AI将分析活动数据,生成详细的复盘报告",
-    
-    // Messages
     messages_title: "团队沟通",
     messages_placeholder: "输入消息...",
     messages_no_messages: "暂无消息",
@@ -265,14 +224,10 @@ const translations = {
     messages_video: "视频",
     messages_file: "文件",
     messages_video_not_supported: "您的浏览器不支持视频播放",
-    
-    // Files
     files_title: "文件资料",
     files_upload: "上传文件",
     files_uploading: "上传中...",
     files_no_files: "暂无文件",
-    
-    // Common
     loading: "加载中...",
     people: "人",
     date: "日期",
@@ -283,25 +238,17 @@ const translations = {
     optional: "可选",
     you: "您",
     event: "活动",
-    
-    // Language
     language: "语言",
     language_zh: "中文",
     language_en: "English",
     switch_language: "切换语言",
-    
-    // Roles
     organizer: "组织者",
     participants: "参与者",
     participant_list: "参与者列表",
-    
-    // Copy & Share
     copied: "已复制",
     copy: "复制",
     qr_share: "分享二维码",
     qr_download: "下载二维码",
-    
-    // Join Event
     join_event_title: "您被邀请了！",
     join_event_subtitle: "扫描此二维码加入活动",
     join_event: "加入活动",
@@ -316,8 +263,6 @@ const translations = {
     login_required_note: "您需要登录才能加入此活动",
     login: "登录",
     loading_failed: "加载失败",
-
-    // Plan & Billing
     plan_free: "免费版",
     plan_starter: "入门版",
     plan_pro: "专业版",
@@ -329,12 +274,9 @@ const translations = {
     next_reset: "下次重置",
   },
   en: {
-    // Navigation
     nav_dashboard: "My Events",
     nav_create: "AI Create Event",
     nav_reports: "Review Reports",
-    
-    // Dashboard
     dashboard_title: "My Events",
     dashboard_subtitle: "Manage and track all event progress",
     dashboard_total: "Total Events",
@@ -344,8 +286,6 @@ const translations = {
     dashboard_create_first: "Create your first event",
     you_are_organizer: "You are Organizer",
     you_are_participant: "You are Participant",
-    
-    // Create Event Page
     create_title: "AI Event Planning",
     create_subtitle: "Describe your event needs and AI will generate a complete event plan",
     create_example: "Example Description",
@@ -360,8 +300,6 @@ const translations = {
     create_creating: "Creating event...",
     create_success: "Created Successfully!",
     create_success_redirect: "Redirecting to event details...",
-    
-    // Buttons
     btn_create: "Create Event",
     btn_create_ai: "AI Create Event",
     btn_view_detail: "View Details",
@@ -381,8 +319,6 @@ const translations = {
     btn_refresh: "Refresh",
     btn_back_dashboard: "Back to My Events",
     btn_copy_event: "Copy & Plan Next Event",
-    
-    // Task Fields
     task_name: "Task Name",
     task_description: "Task Description",
     task_assignee: "Assignee",
@@ -392,8 +328,6 @@ const translations = {
     task_status: "Task Status",
     task_details: "Task Details",
     task_optional: "Optional",
-    
-    // Task Dialog Actions
     tasks_edit: "Edit Task",
     tasks_claim: "Claim Task",
     tasks_submit: "Submit Solution",
@@ -403,8 +337,6 @@ const translations = {
     solution_text: "Solution Description",
     solution_files: "Solution Files",
     solution_submitted: "Solution Submitted",
-
-    // Task Form Labels
     tasks_title: "Task List",
     tasks_name_label: "Task Name",
     tasks_name_placeholder: "Enter task name",
@@ -416,8 +348,6 @@ const translations = {
     tasks_status_label: "Task Status",
     tasks_create: "Create Task",
     creating: "Creating...",
-    
-    // Event Status
     status_preparing: "Preparing",
     status_ongoing: "Ongoing",
     status_completed: "Completed",
@@ -426,8 +356,6 @@ const translations = {
     status_进行中: "Ongoing",
     status_已结束: "Completed",
     status_已复盘: "Reviewed",
-    
-    // Task Status
     status_pending: "Pending",
     status_in_progress: "In Progress",
     status_done: "Done",
@@ -436,19 +364,13 @@ const translations = {
     task_status_ongoing: "Ongoing",
     task_status_completed: "Completed",
     task_status_delayed: "Delayed",
-    
-    // Task Stage
     stage_preparation: "Preparation",
     stage_execution: "Execution",
     stage_review: "Review",
-    
-    // Task Priority
     priority_low: "Low",
     priority_medium: "Medium",
     priority_high: "High",
     priority_urgent: "Urgent",
-    
-    // Event Detail
     event_date: "Event Date",
     event_location: "Location",
     event_scale: "Scale",
@@ -458,8 +380,6 @@ const translations = {
     event_requirements: "Special Requirements",
     event_not_found: "Event not found",
     event_not_found_desc: "Cannot find this event",
-    
-    // Activity Management
     activity_management: "Activity Management",
     activity_management_desc: "Manage registration and check-in features",
     registration_page: "Registration Page",
@@ -471,8 +391,6 @@ const translations = {
     open_in_new_tab: "Open in New Tab",
     how_to_use: "How to Use",
     how_to_use_description: "Copy these links and share via email, website, or social media. Participants can use these links to register and check in.",
-    
-    // Registration & Check-in Stats
     stats_title: "Registration & Check-in Stats",
     total_registered: "Total Registered",
     total_checked_in: "Checked In",
@@ -484,13 +402,9 @@ const translations = {
     export_csv: "Export CSV",
     checked_in: "Checked In",
     registered_at: "Registered At",
-    
-    // Organizer QR Code
     organizer_qr: "Organizer QR Code",
     organizer_qr_desc: "Scan this QR code to quickly access event management dashboard",
     organizer_qr_note: "This QR code is for event organizers only",
-    
-    // Registration Page
     event_registration: "Event Registration",
     register_for_event: "Register for Event",
     registration_link_title: "Event Registration Link",
@@ -527,8 +441,6 @@ const translations = {
     checkin_preview_title: "Check-in Preview",
     checkin_preview_desc: "Please use the following page to check in on event day",
     view_checkin_page: "View Check-in Page",
-    
-    // Check-in Page
     event_checkin: "Event Check-in",
     confirm_attendance: "Confirm Attendance",
     manual_checkin: "Manual Check-in",
@@ -551,22 +463,16 @@ const translations = {
     enter_checkin_info: "Please enter check-in information",
     name_required: "Name (Required)",
     email_optional: "Email (Optional)",
-    
-    // Tabs
     tab_tasks: "Task List",
     tab_messages: "Team Chat",
     tab_files: "Files",
     tab_report: "AI Recap",
-    
-    // Task Views
     view_kanban: "Kanban",
     view_list: "List",
     kanban_search: "Search tasks...",
     kanban_filter: "Filter",
     tasks_add: "Add Task",
     task_unclaimed: "Unclaimed",
-    
-    // Reports Page
     reports_title: "AI Review Reports",
     reports_summary: "Event Summary",
     reports_highlights: "Highlights",
@@ -577,8 +483,6 @@ const translations = {
     reports_generating: "Generating...",
     reports_regenerate: "Regenerate",
     reports_ai_description: "AI will analyze event data and generate a detailed recap report",
-    
-    // Messages
     messages_title: "Team Communication",
     messages_placeholder: "Type a message...",
     messages_no_messages: "No messages yet",
@@ -591,14 +495,10 @@ const translations = {
     messages_video: "Video",
     messages_file: "File",
     messages_video_not_supported: "Your browser does not support video playback",
-    
-    // Files
     files_title: "Files",
     files_upload: "Upload File",
     files_uploading: "Uploading...",
     files_no_files: "No files yet",
-    
-    // Common
     loading: "Loading...",
     people: "People",
     date: "Date",
@@ -609,25 +509,17 @@ const translations = {
     optional: "optional",
     you: "You",
     event: "Event",
-    
-    // Language
     language: "Language",
     language_zh: "中文",
     language_en: "English",
     switch_language: "Switch Language",
-    
-    // Roles
     organizer: "Organizer",
     participants: "Participants",
     participant_list: "Participant List",
-    
-    // Copy & Share
     copied: "Copied",
     copy: "Copy",
     qr_share: "Share QR Code",
     qr_download: "Download QR Code",
-    
-    // Join Event
     join_event_title: "You're Invited!",
     join_event_subtitle: "Scan this QR code to join the event",
     join_event: "Join Event",
@@ -642,8 +534,6 @@ const translations = {
     login_required_note: "You need to login to join this event",
     login: "Login",
     loading_failed: "Loading failed",
-
-    // Plan & Billing
     plan_free: "Free Plan",
     plan_starter: "Starter",
     plan_pro: "Pro",
@@ -667,113 +557,85 @@ export function useLanguage() {
 }
 
 export function LanguageProvider({ children }) {
-  // Initialize from localStorage synchronously
   const [language, setLanguage] = useState(() => {
+    if (typeof window === 'undefined') return 'zh';
     try {
       const saved = localStorage.getItem("eventflox_language");
-      console.log("🔍 [LanguageProvider] Initial load from localStorage:", saved || "not found, defaulting to zh");
       return saved === "en" ? "en" : "zh";
     } catch (error) {
-      console.error("❌ [LanguageProvider] Failed to read from localStorage:", error);
+      console.error("Failed to read from localStorage:", error);
       return "zh";
     }
   });
   
   const [isReady, setIsReady] = useState(false);
 
-  // Sync with user entity in background (only once on mount)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const syncLanguage = async () => {
       try {
+        if (!base44 || !base44.auth || !base44.auth.me) {
+          setIsReady(true);
+          return;
+        }
+        
         const user = await base44.auth.me();
         
-        // localStorage has priority over user entity
-        // Only update if user entity is different AND we haven't explicitly set it
         if (user?.preferred_language) {
           const localStorageLang = localStorage.getItem("eventflox_language");
           
           if (localStorageLang === user.preferred_language) {
-            // localStorage and user entity match
             if (language !== user.preferred_language) {
-              console.log("✅ [LanguageProvider] User entity and localStorage match. Updating current language state.");
               setLanguage(user.preferred_language);
-            } else {
-              console.log("👍 [LanguageProvider] Language state, localStorage, and user entity all match:", user.preferred_language);
             }
           } else if (localStorageLang && localStorageLang !== user.preferred_language) {
-            console.log("⚠️ [LanguageProvider] localStorage has priority:", localStorageLang, "over user entity:", user.preferred_language);
-            // Update user entity to match localStorage
-            base44.auth.updateMe({ preferred_language: localStorageLang })
-              .then(() => console.log("✅ [LanguageProvider] Synced user entity to localStorage language"))
-              .catch(err => console.warn("⚠️ [LanguageProvider] Failed to sync user entity to localStorage language:", err));
+            if (base44.auth.updateMe) {
+              base44.auth.updateMe({ preferred_language: localStorageLang }).catch(() => {});
+            }
             setLanguage(localStorageLang);
           } else if (!localStorageLang && user.preferred_language !== language) {
-            // localStorage is empty, but user entity has a preferred_language
-            console.log("🔄 [LanguageProvider] Syncing language from user entity (no localStorage preference):", user.preferred_language);
             setLanguage(user.preferred_language);
             localStorage.setItem("eventflox_language", user.preferred_language);
           }
         }
       } catch (error) {
-        console.log("⚠️ [LanguageProvider] User not logged in or failed to load user, using localStorage value/default.");
+        // User not logged in, use localStorage or default
       } finally {
         setIsReady(true);
       }
     };
     
     syncLanguage();
-  }, []); // Empty deps - run only once on mount
+  }, []);
 
-  // Safe language detection + fallback
   const getSafeLanguage = (lang) => {
     const supported = ["en", "zh"];
-    if (!supported.includes(lang)) {
-      console.warn(`⚠️ [LanguageProvider] Unsupported language "${lang}", falling back to "en"`);
-      return "en";
-    }
-    return lang;
+    return supported.includes(lang) ? lang : "en";
   };
 
   const switchLanguage = async (newLang) => {
     const safeLang = getSafeLanguage(newLang);
-    console.log("🔄 [LanguageProvider] Switching language to:", safeLang);
-    
-    // 1. Update state immediately (triggers re-render)
     setLanguage(safeLang);
     
-    // 2. Save to localStorage immediately
-    try {
-      localStorage.setItem("eventflox_language", safeLang);
-      console.log("✅ [LanguageProvider] Saved to localStorage:", safeLang);
-    } catch (error) {
-      console.error("❌ [LanguageProvider] Failed to save to localStorage:", error);
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem("eventflox_language", safeLang);
+      } catch (error) {
+        console.error("Failed to save to localStorage:", error);
+      }
     }
     
-    // 3. Optional: sync with backend (only if base44 exists)
-    if (typeof base44 !== "undefined" && base44?.auth?.updateMe) {
-      base44.auth.updateMe({ preferred_language: safeLang })
-        .then(() => {
-          console.log("✅ [LanguageProvider] Synced to user entity");
-        })
-        .catch((error) => {
-          console.warn("⚠️ [LanguageProvider] Failed to sync to user entity:", error);
-        });
-    } else {
-      console.log("ℹ️ [LanguageProvider] Skipping Base44 sync (running outside Base44)");
+    if (base44 && base44.auth && base44.auth.updateMe) {
+      base44.auth.updateMe({ preferred_language: safeLang }).catch(() => {});
     }
   };
 
   const t = (key) => {
     const safeLang = getSafeLanguage(language);
-    const translation = translations[safeLang]?.[key];
-    if (!translation) {
-      console.warn(`⚠️ [LanguageProvider] Missing translation for key: ${key} in language: ${safeLang}`);
-      return key;
-    }
-    return translation;
+    return translations[safeLang]?.[key] || key;
   };
 
-  // Don't block UI - show content immediately with current language
   return (
     <LanguageContext.Provider value={{ language, switchLanguage, t, isReady }}>
       {children}
