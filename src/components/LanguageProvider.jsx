@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 
@@ -22,12 +21,12 @@ const translations = {
     
     // Create Event Page
     create_title: "AI 智能活动策划",
-    create_subtitle: "描述您的活动需求，AI 将为您生成完整的活动方案",
+    create_subtitle: "描述您的活动需求,AI 将为您生成完整的活动方案",
     create_example: "示例描述",
-    create_example_text: "下个月在罗岛Octagon举办一个100人左右的新年聚会，有摄影和抽奖。",
-    create_example_hint: "提示：请包含时间、地点、规模和活动性质，越详细效果越好",
+    create_example_text: "下个月在罗岛Octagon举办一个100人左右的新年聚会,有摄影和抽奖。",
+    create_example_hint: "提示：请包含时间、地点、规模和活动性质,越详细效果越好",
     create_input_label: "描述您的活动",
-    create_input_placeholder: "例如：下个月在会议中心举办200人的产品发布会，需要舞台搭建、LED屏幕、现场直播...",
+    create_input_placeholder: "例如：下个月在会议中心举办200人的产品发布会,需要舞台搭建、LED屏幕、现场直播...",
     create_generate: "AI 生成方案",
     create_generating: "AI 正在生成方案...",
     create_preview: "方案预览",
@@ -169,7 +168,7 @@ const translations = {
     event_registration: "活动报名",
     register_for_event: "报名参加活动",
     registration_link_title: "活动报名链接",
-    registration_link_desc: "复制此链接，分享给活动参与者进行报名",
+    registration_link_desc: "复制此链接,分享给活动参与者进行报名",
     full_name_required: "姓名（必填）",
     email_required: "邮箱（必填）",
     phone_number: "联系电话",
@@ -213,12 +212,12 @@ const translations = {
     checkin_now: "立即签到",
     checking_in: "签到中...",
     check_in_success: "签到成功",
-    check_in_failed: "签到失败，请重试",
+    check_in_failed: "签到失败,请重试",
     checkin_time: "签到时间",
     checked_in_success: "签到成功！",
     checkin_success_desc: "您已成功签到此活动",
     enjoy_event: "欢迎参加活动！",
-    checkin_confirms: "签到确认您的到场，帮助组织者统计参与情况",
+    checkin_confirms: "签到确认您的到场,帮助组织者统计参与情况",
     not_registered: "您尚未报名",
     not_registered_desc: "建议先报名再签到",
     checkin_disabled: "签到功能未启用",
@@ -239,29 +238,29 @@ const translations = {
     kanban_search: "搜索任务...",
     kanban_filter: "筛选",
     tasks_add: "添加任务",
-    task_unclaimed: "待认领",
+    task_unclaimed: "未认领",
     
     // Reports Page
     reports_title: "AI复盘报告",
     reports_summary: "活动总结",
-    reports_highlights: "活动亮点",
-    reports_issues: "问题与不足",
+    reports_highlights: "亮点与成就",
+    reports_issues: "问题与挑战",
     reports_suggestions: "改进建议",
     reports_no_reports: "暂无复盘报告",
     reports_generate: "生成AI复盘",
     reports_generating: "生成中...",
     reports_regenerate: "重新生成",
-    reports_ai_description: "AI将分析活动数据并生成详细的复盘报告",
+    reports_ai_description: "AI将分析活动数据,生成详细的复盘报告",
     
     // Messages
     messages_title: "团队沟通",
     messages_placeholder: "输入消息...",
     messages_no_messages: "暂无消息",
-    messages_tips: "按 Enter 发送，Shift + Enter 换行",
+    messages_tips: "按Enter发送,Shift + Enter换行",
     messages_translation_zh: "中文翻译",
     messages_translation_en: "英文翻译",
-    messages_attach: "添加附件",
-    messages_pending_attachments: "待发送附件",
+    messages_attach: "附加文件",
+    messages_pending_attachments: "待上传附件",
     messages_image: "图片",
     messages_video: "视频",
     messages_file: "文件",
@@ -303,14 +302,14 @@ const translations = {
     qr_download: "下载二维码",
     
     // Join Event
-    join_event_title: "您收到活动邀请！",
-    join_event_subtitle: "扫描二维码加入活动",
+    join_event_title: "您被邀请了！",
+    join_event_subtitle: "扫描此二维码加入活动",
     join_event: "加入活动",
     joining: "加入中...",
-    already_joined: "您已是参与者",
-    already_joined_desc: "您可以从我的活动中访问此活动",
+    already_joined: "您已经是参与者了！",
+    already_joined_desc: "您可以从活动列表访问此活动",
     view_event: "查看活动",
-    join_event_note: "加入后，您将可以访问任务、聊天、文件和所有活动更新",
+    join_event_note: "加入后,您将可以访问任务、聊天、文件和所有活动更新",
     join_failed: "加入失败",
     login_required: "请先登录",
     login_to_join: "登录以加入活动",
@@ -320,21 +319,20 @@ const translations = {
 
     // Plan & Billing
     plan_free: "免费版",
-    plan_starter: "Starter",
-    plan_pro: "Pro",
-    plan_team: "Team",
+    plan_starter: "入门版",
+    plan_pro: "专业版",
+    plan_team: "团队版",
     upgrade_plan: "升级套餐",
     current_plan: "当前套餐",
-    events_used: "已使用活动",
+    events_used: "已使用活动数",
     billing_cycle: "计费周期",
     next_reset: "下次重置",
   },
-  
   en: {
     // Navigation
     nav_dashboard: "My Events",
-    nav_create: "Create with AI",
-    nav_reports: "AI Reports",
+    nav_create: "AI Create Event",
+    nav_reports: "Review Reports",
     
     // Dashboard
     dashboard_title: "My Events",
@@ -344,28 +342,28 @@ const translations = {
     dashboard_completed: "Completed",
     dashboard_no_events: "No events yet",
     dashboard_create_first: "Create your first event",
-    you_are_organizer: "You're the organizer",
-    you_are_participant: "You're a participant",
+    you_are_organizer: "You are Organizer",
+    you_are_participant: "You are Participant",
     
     // Create Event Page
     create_title: "AI Event Planning",
-    create_subtitle: "Describe your event requirements, AI will generate a complete event plan for you",
+    create_subtitle: "Describe your event needs and AI will generate a complete event plan",
     create_example: "Example Description",
-    create_example_text: "Host a New Year party for about 100 people at Rhode Island Octagon next month, with photography and lottery.",
-    create_example_hint: "Tip: Include time, location, scale, and event type for best results",
+    create_example_text: "Host a New Year party for about 100 people at Octagon in Rhode Island next month, with photography and raffle.",
+    create_example_hint: "Hint: Include time, location, scale, and event type. More details = better results",
     create_input_label: "Describe Your Event",
-    create_input_placeholder: "e.g., Product launch event for 200 people at conference center next month, need stage setup, LED screens, live streaming...",
-    create_generate: "Generate AI Plan",
+    create_input_placeholder: "e.g.: Host a 200-person product launch at the convention center next month, need stage setup, LED screens, live streaming...",
+    create_generate: "AI Generate Plan",
     create_generating: "AI is generating plan...",
     create_preview: "Plan Preview",
-    create_confirm: "Confirm & Create Event",
+    create_confirm: "Confirm Create Event",
     create_creating: "Creating event...",
     create_success: "Created Successfully!",
     create_success_redirect: "Redirecting to event details...",
     
     // Buttons
     btn_create: "Create Event",
-    btn_create_ai: "Create with AI",
+    btn_create_ai: "AI Create Event",
     btn_view_detail: "View Details",
     btn_edit: "Edit",
     btn_delete: "Delete",
@@ -382,7 +380,7 @@ const translations = {
     btn_share: "Share",
     btn_refresh: "Refresh",
     btn_back_dashboard: "Back to My Events",
-    btn_copy_event: "Plan Next Event",
+    btn_copy_event: "Copy & Plan Next Event",
     
     // Task Fields
     task_name: "Task Name",
@@ -391,7 +389,7 @@ const translations = {
     task_due_date: "Due Date",
     task_stage: "Stage",
     task_priority: "Priority",
-    task_status: "Status",
+    task_status: "Task Status",
     task_details: "Task Details",
     task_optional: "Optional",
     
@@ -399,7 +397,7 @@ const translations = {
     tasks_edit: "Edit Task",
     tasks_claim: "Claim Task",
     tasks_submit: "Submit Solution",
-    claim_as: "Claim as",
+    claim_as: "Claim As",
     claim_task_note: "Claim Note",
     confirm_claim: "Confirm Claim",
     solution_text: "Solution Description",
@@ -411,7 +409,7 @@ const translations = {
     tasks_name_label: "Task Name",
     tasks_name_placeholder: "Enter task name",
     tasks_description_label: "Task Description",
-    tasks_description_placeholder: "Describe the task in detail...",
+    tasks_description_placeholder: "Describe task details...",
     tasks_due_date_label: "Due Date",
     tasks_stage_label: "Stage",
     tasks_priority_label: "Priority",
@@ -424,14 +422,18 @@ const translations = {
     status_ongoing: "Ongoing",
     status_completed: "Completed",
     status_reviewed: "Reviewed",
+    status_筹备中: "Preparing",
+    status_进行中: "Ongoing",
+    status_已结束: "Completed",
+    status_已复盘: "Reviewed",
     
     // Task Status
     status_pending: "Pending",
     status_in_progress: "In Progress",
-    status_done: "Completed",
+    status_done: "Done",
     status_delayed: "Delayed",
     task_status_pending: "Pending",
-    task_status_ongoing: "In Progress",
+    task_status_ongoing: "Ongoing",
     task_status_completed: "Completed",
     task_status_delayed: "Delayed",
     
@@ -450,12 +452,12 @@ const translations = {
     event_date: "Event Date",
     event_location: "Location",
     event_scale: "Scale",
-    event_type: "Type",
+    event_type: "Event Type",
     event_organizer: "Organizer",
     event_description: "Description",
     event_requirements: "Special Requirements",
-    event_not_found: "Event Not Found",
-    event_not_found_desc: "Unable to find this event",
+    event_not_found: "Event not found",
+    event_not_found_desc: "Cannot find this event",
     
     // Activity Management
     activity_management: "Activity Management",
@@ -463,12 +465,12 @@ const translations = {
     registration_page: "Registration Page",
     check_in_page: "Check-in Page",
     share_event_links: "Share Event Links",
-    share_link_desc: "Copy and share these links with participants",
+    share_link_desc: "Copy these links and share with participants",
     registration_link: "Registration Link",
     check_in_link: "Check-in Link",
-    open_in_new_tab: "Open in new tab",
-    how_to_use: "How to use",
-    how_to_use_description: "Copy these links and share them via email, website, or social media. Participants can register and check-in using these links.",
+    open_in_new_tab: "Open in New Tab",
+    how_to_use: "How to Use",
+    how_to_use_description: "Copy these links and share via email, website, or social media. Participants can use these links to register and check in.",
     
     // Registration & Check-in Stats
     stats_title: "Registration & Check-in Stats",
@@ -476,45 +478,45 @@ const translations = {
     total_checked_in: "Checked In",
     not_checked_in: "Not Checked In",
     checkin_rate: "Check-in Rate",
-    registration_conversion: "Registration Conversion",
+    registration_conversion: "Registration Rate",
     recent_registrations: "Recent Registrations",
     no_registrations: "No registrations yet",
     export_csv: "Export CSV",
     checked_in: "Checked In",
-    registered_at: "Registered at",
+    registered_at: "Registered At",
     
     // Organizer QR Code
     organizer_qr: "Organizer QR Code",
-    organizer_qr_desc: "Scan this QR code to quickly access event management",
+    organizer_qr_desc: "Scan this QR code to quickly access event management dashboard",
     organizer_qr_note: "This QR code is for event organizers only",
     
     // Registration Page
     event_registration: "Event Registration",
-    register_for_event: "Register for this event",
+    register_for_event: "Register for Event",
     registration_link_title: "Event Registration Link",
-    registration_link_desc: "Copy this link and share it with participants to register",
+    registration_link_desc: "Copy this link and share with event participants for registration",
     full_name_required: "Full Name (Required)",
     email_required: "Email (Required)",
     phone_number: "Phone Number",
     organization: "Organization",
     notes_optional: "Notes (Optional)",
-    notes_placeholder: "Any special requirements or notes...",
-    your_full_name: "Your full name",
+    notes_placeholder: "Special requirements or additional notes...",
+    your_full_name: "Your Full Name",
     your_email_placeholder: "your.email@example.com",
-    your_organization_placeholder: "Your company or organization",
+    your_organization_placeholder: "Your Company or Organization",
     complete_registration: "Complete Registration",
     registering: "Registering...",
-    registration_agreement: "By registering, you agree to receive event updates and notifications",
+    registration_agreement: "By submitting, you agree to receive event-related notifications",
     registration_successful: "Registration Successful!",
     registration_success_desc: "You have successfully registered for this event",
     event_details: "Event Details",
     registration_failed: "Registration Failed",
-    registration_disabled: "Registration is not enabled for this event",
+    registration_disabled: "Event registration is not enabled",
     registration_closed: "Registration Closed",
-    registration_deadline_passed_desc: "The registration deadline has passed",
+    registration_deadline_passed_desc: "Registration deadline has passed",
     registration_deadline_passed_alert: "Registration deadline has passed",
     event_full: "Event Full",
-    event_full_desc: "This event has reached maximum capacity",
+    event_full_desc: "Event has reached maximum capacity",
     event_is_full_alert: "Event is full",
     fill_required_fields: "Please fill in required fields",
     failed_to_load_event: "Failed to load event",
@@ -523,30 +525,30 @@ const translations = {
     full: "Full",
     registration_deadline: "Registration Deadline",
     checkin_preview_title: "Check-in Preview",
-    checkin_preview_desc: "Please use this page to check in on the event day",
+    checkin_preview_desc: "Please use the following page to check in on event day",
     view_checkin_page: "View Check-in Page",
     
     // Check-in Page
-    event_checkin: "Event Check-In",
-    confirm_attendance: "Confirm your attendance",
+    event_checkin: "Event Check-in",
+    confirm_attendance: "Confirm Attendance",
     manual_checkin: "Manual Check-in",
     qr_checkin: "QR Check-in",
     please_enter_name: "Please enter your name",
     please_enter_email: "Please enter your email",
     checkin_now: "Check In Now",
-    checking_in: "Checking In...",
+    checking_in: "Checking in...",
     check_in_success: "Check-in Successful",
     check_in_failed: "Check-in failed, please try again",
     checkin_time: "Check-in Time",
     checked_in_success: "Checked In Successfully!",
-    checkin_success_desc: "You have successfully checked in to this event",
-    enjoy_event: "Welcome to the event! Enjoy your time here.",
+    checkin_success_desc: "You have successfully checked in for this event",
+    enjoy_event: "Welcome to the event!",
     checkin_confirms: "Check-in confirms your attendance and helps organizers track participation",
-    not_registered: "Not Registered",
-    not_registered_desc: "You haven't registered for this event yet. Registration is recommended before check-in.",
-    checkin_disabled: "Check-in is not enabled for this event",
-    checkin_failed: "Check-in failed",
-    enter_checkin_info: "Enter check-in information",
+    not_registered: "You haven't registered",
+    not_registered_desc: "We recommend registering before checking in",
+    checkin_disabled: "Check-in is not enabled",
+    checkin_failed: "Check-in Failed",
+    enter_checkin_info: "Please enter check-in information",
     name_required: "Name (Required)",
     email_optional: "Email (Optional)",
     
@@ -665,7 +667,7 @@ export function useLanguage() {
 }
 
 export function LanguageProvider({ children }) {
-  // FIXED: Initialize from localStorage synchronously
+  // Initialize from localStorage synchronously
   const [language, setLanguage] = useState(() => {
     try {
       const saved = localStorage.getItem("eventflox_language");
@@ -691,23 +693,20 @@ export function LanguageProvider({ children }) {
           const localStorageLang = localStorage.getItem("eventflox_language");
           
           if (localStorageLang === user.preferred_language) {
-            // localStorage and user entity match, or localStorage was set by user entity previously
-            // No action needed, or update if for some reason current 'language' state doesn't match
+            // localStorage and user entity match
             if (language !== user.preferred_language) {
-                console.log("✅ [LanguageProvider] User entity and localStorage match. Updating current language state.");
-                setLanguage(user.preferred_language);
+              console.log("✅ [LanguageProvider] User entity and localStorage match. Updating current language state.");
+              setLanguage(user.preferred_language);
             } else {
-                console.log("👍 [LanguageProvider] Language state, localStorage, and user entity all match:", user.preferred_language);
+              console.log("👍 [LanguageProvider] Language state, localStorage, and user entity all match:", user.preferred_language);
             }
           } else if (localStorageLang && localStorageLang !== user.preferred_language) {
             console.log("⚠️ [LanguageProvider] localStorage has priority:", localStorageLang, "over user entity:", user.preferred_language);
-            // If localStorage has a value different from user.preferred_language,
-            // we assume the user explicitly set it recently.
-            // We can optionally update the user entity in the background to match localStorage.
+            // Update user entity to match localStorage
             base44.auth.updateMe({ preferred_language: localStorageLang })
-                .then(() => console.log("✅ [LanguageProvider] Synced user entity to localStorage language"))
-                .catch(err => console.warn("⚠️ [LanguageProvider] Failed to sync user entity to localStorage language:", err));
-            setLanguage(localStorageLang); // Ensure UI reflects localStorage
+              .then(() => console.log("✅ [LanguageProvider] Synced user entity to localStorage language"))
+              .catch(err => console.warn("⚠️ [LanguageProvider] Failed to sync user entity to localStorage language:", err));
+            setLanguage(localStorageLang);
           } else if (!localStorageLang && user.preferred_language !== language) {
             // localStorage is empty, but user entity has a preferred_language
             console.log("🔄 [LanguageProvider] Syncing language from user entity (no localStorage preference):", user.preferred_language);
@@ -722,12 +721,10 @@ export function LanguageProvider({ children }) {
       }
     };
     
-   // ✅ 自动语言同步逻辑
-  useEffect(() => {
     syncLanguage();
   }, []); // Empty deps - run only once on mount
 
-  // ✅ 安全语言检测 + fallback
+  // Safe language detection + fallback
   const getSafeLanguage = (lang) => {
     const supported = ["en", "zh"];
     if (!supported.includes(lang)) {
@@ -737,7 +734,7 @@ export function LanguageProvider({ children }) {
     return lang;
   };
 
-   const switchLanguage = async (newLang) => {
+  const switchLanguage = async (newLang) => {
     const safeLang = getSafeLanguage(newLang);
     console.log("🔄 [LanguageProvider] Switching language to:", safeLang);
     
@@ -782,6 +779,6 @@ export function LanguageProvider({ children }) {
       {children}
     </LanguageContext.Provider>
   );
-} // ✅ 补上这一行闭合整个组件函数
+}
 
-export default LanguageProvider; // ✅ 可选，但建议加上
+export default LanguageProvider;
