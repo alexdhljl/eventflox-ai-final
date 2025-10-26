@@ -722,37 +722,55 @@ export function LanguageProvider({ children }) {
       }
     };
     
+   // ✅ 自动语言同步逻辑
+  useEffect(() => {
     syncLanguage();
   }, []); // Empty deps - run only once on mount
 
+  // ✅ 安全语言检测 + fallback
+  const getSafeLanguage = (lang) => {
+    const supported = ["en", "zh"];
+    if (!supported.includes(lang)) {
+      console.warn(`⚠️ [LanguageProvider] Unsupported language "${lang}", falling back to "en"`);
+      return "en";
+    }
+    return lang;
+  };
+
   const switchLanguage = async (newLang) => {
-    console.log("🔄 [LanguageProvider] Switching language to:", newLang);
+    const safeLang = getSafeLanguage(newLang);
+    console.log("🔄 [LanguageProvider] Switching language to:", safeLang);
     
     // 1. Update state immediately (triggers re-render)
-    setLanguage(newLang);
+    setLanguage(safeLang);
     
     // 2. Save to localStorage immediately
     try {
-      localStorage.setItem("eventflox_language", newLang);
-      console.log("✅ [LanguageProvider] Saved to localStorage:", newLang);
+      localStorage.setItem("eventflox_language", safeLang);
+      console.log("✅ [LanguageProvider] Saved to localStorage:", safeLang);
     } catch (error) {
       console.error("❌ [LanguageProvider] Failed to save to localStorage:", error);
     }
     
-    // 3. Sync with user entity in background (don't await)
-    base44.auth.updateMe({ preferred_language: newLang })
-      .then(() => {
-        console.log("✅ [LanguageProvider] Synced to user entity");
-      })
-      .catch((error) => {
-        console.warn("⚠️ [LanguageProvider] Failed to sync to user entity (user may not be logged in or API error):", error);
-      });
+    // 3. Optional: sync with backend (only if base44 exists)
+    if (typeof base44 !== "undefined" && base44?.auth?.updateMe) {
+      base44.auth.updateMe({ preferred_language: safeLang })
+        .then(() => {
+          console.log("✅ [LanguageProvider] Synced to user entity");
+        })
+        .catch((error) => {
+          console.warn("⚠️ [LanguageProvider] Failed to sync to user entity:", error);
+        });
+    } else {
+      console.log("ℹ️ [LanguageProvider] Skipping Base44 sync (running outside Base44)");
+    }
   };
 
   const t = (key) => {
-    const translation = translations[language]?.[key];
+    const safeLang = getSafeLanguage(language);
+    const translation = translations[safeLang]?.[key];
     if (!translation) {
-      console.warn(`⚠️ [LanguageProvider] Missing translation for key: ${key} in language: ${language}`);
+      console.warn(`⚠️ [LanguageProvider] Missing translation for key: ${key} in language: ${safeLang}`);
       return key;
     }
     return translation;
