@@ -19,13 +19,6 @@ function LayoutContent({ children }) {
   const { language, switchLanguage, t } = useLanguage();
 
   useEffect(() => {
-    const localUser = localStorage.getItem("user");
-    if (!localUser) {
-      window.location.href = "/login";
-    }
-  }, []);
-
-  useEffect(() => {
     User.me().then(setUser).catch(() => {});
   }, []);
 
@@ -166,9 +159,9 @@ function LayoutContent({ children }) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-slate-900 text-sm truncate">
-                {user?.full_name || t("loading")}
+                {user?.full_name || (language === "zh" ? "访客" : "Guest")}
               </p>
-              <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+              <p className="text-xs text-slate-500 truncate">{user?.email || "eventflox-ai"}</p>
             </div>
           </div>
         </div>
