@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { Event, Task, Message, EventFile, EventParticipant, Report, User } from "@/api/entities";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Loader2, RefreshCw } from "lucide-react";
+import { ArrowLeft, Loader2, RefreshCw, MessageCircle, CheckCircle2, FolderOpen, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { motion } from "framer-motion";
@@ -12,12 +11,12 @@ import TaskSection from "../components/detail/TaskSection";
 import MessageSection from "../components/detail/MessageSection";
 import FileSection from "../components/detail/FileSection";
 import ReportSection from "../components/detail/ReportSection";
-import RegistrationStats from "../components/detail/RegistrationStats"; // New import
+import RegistrationStats from "../components/detail/RegistrationStats";
 import { useLanguage } from "../components/LanguageProvider";
 
 export default function EventDetail() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const urlParams = new URLSearchParams(window.location.search);
   const eventId = urlParams.get("id");
 
@@ -43,11 +42,9 @@ export default function EventDetail() {
   const loadEventData = async () => {
     setLoading(true);
     try {
-      console.log("Loading event data for ID:", eventId);
-      
       const user = await User.me();
       setCurrentUser(user);
-      
+
       const [eventData, tasksData, messagesData, filesData, participantsData, reportsData] = await Promise.all([
         Event.list().then(events => events.find(e => e.id === eventId)),
         Task.filter({ event_id: eventId }),
@@ -56,23 +53,17 @@ export default function EventDetail() {
         EventParticipant.filter({ event_id: eventId }),
         Report.filter({ event_id: eventId })
       ]);
-      
-      console.log("Event data loaded:", eventData);
-      console.log("Participants loaded:", participantsData);
-      console.log("Reports loaded:", reportsData);
-      
+
       if (!eventData) {
         setLoading(false);
         return;
       }
 
-      // Check if user has access to this event
       const isEventCreator = eventData.created_by === user.email;
       const isParticipant = participantsData.some(p => p.user_email === user.email);
       const canAccess = isEventCreator || isParticipant;
 
       if (!canAccess) {
-        // Redirect to join page if user doesn't have access
         navigate(createPageUrl(`JoinEvent?id=${eventId}`));
         setLoading(false);
         return;
@@ -87,12 +78,8 @@ export default function EventDetail() {
       setParticipants(participantsData || []);
       setReports(reportsData || []);
 
-      // Show report tab if:
-      // 1. User is creator (can always generate)
-      // 2. OR report already exists (all members can view)
       const hasReport = reportsData && reportsData.length > 0;
       setShowReportTab(isEventCreator || hasReport);
-      
     } catch (error) {
       console.error("加载失败:", error);
     }
@@ -103,7 +90,6 @@ export default function EventDetail() {
     setRefreshing(true);
     try {
       const tasksData = await Task.filter({ event_id: eventId });
-      console.log("Tasks refreshed:", tasksData);
       setTasks(tasksData || []);
     } catch (error) {
       console.error("刷新任务失败:", error);
@@ -124,8 +110,7 @@ export default function EventDetail() {
   const refreshReports = async () => {
     const reportsData = await Report.filter({ event_id: eventId });
     setReports(reportsData || []);
-    
-    // Update showReportTab after refresh - if report exists, all members can see it
+
     const hasReport = reportsData && reportsData.length > 0;
     setShowReportTab(isCreator || hasReport);
   };
@@ -133,7 +118,7 @@ export default function EventDetail() {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
+        <Loader2 className="w-12 h-12 text-slate-900 animate-spin mb-4" />
         <p className="text-slate-600">{t("loading")}</p>
       </div>
     );
@@ -154,7 +139,7 @@ export default function EventDetail() {
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
+    <div className="min-h-screen p-4 md:p-8 bg-slate-50">
       <div className="max-w-7xl mx-auto space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -169,36 +154,79 @@ export default function EventDetail() {
             {t("btn_back_dashboard")}
           </Button>
 
-          <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-200 p-6 md:p-8">
-            <EventInfo 
-              event={event} 
-              onUpdate={loadEventData} 
+          <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6 md:p-8">
+            <EventInfo
+              event={event}
+              onUpdate={loadEventData}
               isCreator={isCreator}
               participants={participants}
             />
           </div>
         </motion.div>
 
-        {/* Registration & Check-in Stats - Only for creator */}
         {isCreator && event && (
           <RegistrationStats eventId={eventId} isCreator={isCreator} />
         )}
 
-        <Tabs defaultValue="tasks" className="w-full">
-          <TabsList className="bg-white/80 backdrop-blur-xl border border-slate-200">
-            <TabsTrigger value="tasks">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-white border border-slate-200 rounded-lg p-4 flex gap-3">
+            <MessageCircle className="w-5 h-5 text-cyan-600 mt-0.5" />
+            <div>
+              <p className="font-semibold text-slate-900 text-sm">{t("tab_messages")}</p>
+              <p className="text-xs text-slate-500">
+                {language === "zh" ? "所有决定先沉淀在沟通区。" : "Keep decisions in the conversation first."}
+              </p>
+            </div>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-lg p-4 flex gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <div>
+              <p className="font-semibold text-slate-900 text-sm">{t("tab_tasks")} ({tasks.length})</p>
+              <p className="text-xs text-slate-500">
+                {language === "zh" ? "把决定转成负责人明确的任务。" : "Turn decisions into owned tasks."}
+              </p>
+            </div>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-lg p-4 flex gap-3">
+            <FolderOpen className="w-5 h-5 text-amber-600 mt-0.5" />
+            <div>
+              <p className="font-semibold text-slate-900 text-sm">{t("tab_files")}</p>
+              <p className="text-xs text-slate-500">
+                {language === "zh" ? "资料和上下文放在一起。" : "Keep files beside their context."}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <Tabs defaultValue="messages" className="w-full">
+          <TabsList className="bg-white border border-slate-200 flex flex-wrap h-auto">
+            <TabsTrigger value="messages" className="gap-2">
+              <MessageCircle className="w-4 h-4" />
+              {t("tab_messages")} ({messages.length})
+            </TabsTrigger>
+            <TabsTrigger value="tasks" className="gap-2">
+              <CheckCircle2 className="w-4 h-4" />
               {t("tab_tasks")} ({tasks.length})
             </TabsTrigger>
-            <TabsTrigger value="messages">{t("tab_messages")}</TabsTrigger>
-            <TabsTrigger value="files">{t("tab_files")}</TabsTrigger>
+            <TabsTrigger value="files" className="gap-2">
+              <FolderOpen className="w-4 h-4" />
+              {t("tab_files")} ({files.length})
+            </TabsTrigger>
             {showReportTab && (
               <TabsTrigger value="report" className="gap-2">
-                <span>🤖</span>
+                <Sparkles className="w-4 h-4" />
                 {t("tab_report")}
-                {!isCreator && reports.length > 0 && <span className="ml-1">👁️</span>}
               </TabsTrigger>
             )}
           </TabsList>
+
+          <TabsContent value="messages" className="mt-6">
+            <MessageSection
+              eventId={eventId}
+              messages={messages}
+              onRefresh={refreshMessages}
+            />
+          </TabsContent>
 
           <TabsContent value="tasks" className="mt-6">
             <div className="flex justify-end mb-4">
@@ -213,19 +241,11 @@ export default function EventDetail() {
                 {t("btn_refresh")}
               </Button>
             </div>
-            <TaskSection 
-              eventId={eventId} 
-              tasks={tasks} 
+            <TaskSection
+              eventId={eventId}
+              tasks={tasks}
               onRefresh={refreshTasks}
               isCreator={isCreator}
-            />
-          </TabsContent>
-
-          <TabsContent value="messages" className="mt-6">
-            <MessageSection 
-              eventId={eventId}
-              messages={messages}
-              onRefresh={refreshMessages}
             />
           </TabsContent>
 
@@ -239,7 +259,7 @@ export default function EventDetail() {
 
           {showReportTab && (
             <TabsContent value="report" className="mt-6">
-              <ReportSection 
+              <ReportSection
                 event={event}
                 tasks={tasks}
                 messages={messages}
