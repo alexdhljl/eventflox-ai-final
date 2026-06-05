@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { LayoutDashboard, Sparkles, FileText, Menu, X, Globe, Crown } from "lucide-react";
+import { LayoutDashboard, Sparkles, FileText, Menu, X, Globe, Crown, MessagesSquare } from "lucide-react";
 import { User } from "@/api/entities";
 import { Button } from "@/components/ui/button";
 import { LanguageProvider, useLanguage } from "../components/LanguageProvider";
@@ -12,14 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// ✅ 把登录保护逻辑移进 React 组件内部
 function LayoutContent({ children }) {
   const location = useLocation();
   const [user, setUser] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, switchLanguage, t } = useLanguage();
 
-  // ✅ 登录保护逻辑
   useEffect(() => {
     const localUser = localStorage.getItem("user");
     if (!localUser) {
@@ -27,7 +25,6 @@ function LayoutContent({ children }) {
     }
   }, []);
 
-  // 加载用户信息（可选）
   useEffect(() => {
     User.me().then(setUser).catch(() => {});
   }, []);
@@ -43,34 +40,33 @@ function LayoutContent({ children }) {
   ];
 
   const currentPage = navItems.find(item => item.url === location.pathname);
+  const tagline = language === "zh" ? "活动沟通协作中枢" : "Event communication hub";
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-50">
       <header className="md:hidden sticky top-0 z-50 bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img 
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68e325d09d039fe429257d6b/3d44cb0f7_image.png" 
-            alt="EventFloX AI Logo"
-            className="w-8 h-8 object-contain rounded-lg"
-          />
-          <div>
-            <h2 className="font-bold text-slate-900 text-sm">EventFloX AI</h2>
-            <p className="text-xs text-slate-500">{currentPage?.title || t("nav_dashboard")}</p>
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0">
+            <MessagesSquare className="w-5 h-5" />
+          </div>
+          <div className="min-w-0">
+            <h2 className="font-bold text-slate-900 text-sm truncate">EventFloX AI</h2>
+            <p className="text-xs text-slate-500 truncate">{currentPage?.title || t("nav_dashboard")}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:bg-slate-100">
+              <Button variant="ghost" size="icon" className="hover:bg-slate-100" title={t("language")}>
                 <Globe className="w-5 h-5" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => switchLanguage("zh")}>
-                <span className={language === "zh" ? "font-bold" : ""}>🇨🇳 {t("language_zh")}</span>
+                <span className={language === "zh" ? "font-bold" : ""}>中文</span>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => switchLanguage("en")}>
-                <span className={language === "en" ? "font-bold" : ""}>🇬🇧 {t("language_en")}</span>
+                <span className={language === "en" ? "font-bold" : ""}>English</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -101,20 +97,16 @@ function LayoutContent({ children }) {
       `}>
         <div className="p-6 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68e325d09d039fe429257d6b/3d44cb0f7_image.png" 
-              alt="EventFloX AI Logo"
-              className="w-10 h-10 object-contain rounded-lg"
-            />
-            <div>
+            <div className="w-11 h-11 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0">
+              <MessagesSquare className="w-6 h-6" />
+            </div>
+            <div className="min-w-0">
               <h2 className="font-bold text-slate-900">EventFloX AI</h2>
-              <p className="text-xs text-slate-500">
-                {language === "zh" ? "智能活动管理" : "Smart Event Management"}
-              </p>
+              <p className="text-xs text-slate-500 truncate">{tagline}</p>
             </div>
           </div>
         </div>
-        
+
         <nav className="p-4 flex-1">
           {navItems.map((item) => (
             <Link
@@ -122,7 +114,7 @@ function LayoutContent({ children }) {
               to={item.url}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
                 location.pathname === item.url
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-slate-900 text-white'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -131,12 +123,11 @@ function LayoutContent({ children }) {
             </Link>
           ))}
 
-          {/* Subscription Link */}
           <Link
             to={createPageUrl("Subscription")}
             className={`flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
               location.pathname === createPageUrl("Subscription")
-                ? 'bg-blue-600 text-white'
+                ? 'bg-slate-900 text-white'
                 : 'text-slate-700 hover:bg-slate-100'
             }`}
           >
@@ -157,10 +148,10 @@ function LayoutContent({ children }) {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
               <DropdownMenuItem onClick={() => switchLanguage("zh")}>
-                <span className={language === "zh" ? "font-bold" : ""}>🇨🇳 {t("language_zh")}</span>
+                <span className={language === "zh" ? "font-bold" : ""}>中文</span>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => switchLanguage("en")}>
-                <span className={language === "en" ? "font-bold" : ""}>🇬🇧 {t("language_en")}</span>
+                <span className={language === "en" ? "font-bold" : ""}>English</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -168,7 +159,7 @@ function LayoutContent({ children }) {
 
         <div className="p-4 border-t border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
               <span className="text-white font-semibold">
                 {user?.full_name?.[0] || "U"}
               </span>
