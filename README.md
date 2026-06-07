@@ -1,25 +1,50 @@
 # EventFloX AI
 
-EventFloX AI is an event communication workspace for organizers, vendors, teammates, and participants. Instead of scattering decisions across group chats, spreadsheets, file folders, and follow-up notes, each event gets one shared space for planning, conversation, tasks, files, registration, check-in, and review.
+EventFloX AI is an event communication workspace for organizers, teammates, participants, and guests. It now runs without Base44 or AI dependencies: GitHub stores the code, Vercel hosts the site, and Supabase stores shared event data.
 
-## Product Focus
+## Core Workflow
 
-EventFloX is designed around the communication flow of real event preparation:
+- Organizers create an event room.
+- The event room produces a share link and QR code.
+- Participants open the shared link to join the same event room.
+- Team members post group messages before, during, and after the event.
+- Participants claim tasks and submit task plans.
+- Guests register online.
+- Staff can check guests in on site.
 
-- Keep every event conversation in one shared workspace.
-- Turn planning decisions into assigned tasks with clear ownership.
-- Store files, media, vendor documents, and references beside the discussion that created them.
-- Use AI to create an initial event plan, task list, and preparation structure from a short description.
-- Preserve review reports after the event so the team can reuse decisions and lessons learned.
+## Supabase Setup
 
-## Main Screens
+Create these Vercel environment variables:
 
-- **Dashboard**: the communication command center for active events, unread context, task pressure, and shared assets.
-- **AI Create Event**: describe an event and generate the event profile plus starter tasks.
-- **Event Detail**: the event room, organized around conversation, tasks, files, and AI review.
-- **Reports**: post-event summaries and reusable planning memory.
+```text
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-publishable-or-anon-key
+```
 
-## Running The App
+Then open Supabase:
+
+```text
+Supabase -> SQL Editor -> New query
+```
+
+Paste and run:
+
+```text
+supabase/schema.sql
+```
+
+The schema creates these public MVP tables:
+
+- `events`
+- `event_tasks`
+- `task_submissions`
+- `event_messages`
+- `guest_registrations`
+- `checkins`
+
+This first version intentionally uses public read/write policies so shared event links work without login. Add authentication and stricter policies before using it for private or sensitive events.
+
+## Running Locally
 
 ```bash
 npm install
@@ -32,14 +57,14 @@ Open the local URL printed by Vite, usually:
 http://localhost:5173
 ```
 
-## Building The App
+## Building
 
 ```bash
 npm run build
 ```
 
-## Repository
+## Deployment
 
-This repository is the upgraded EventFloX AI app at:
+The production site is hosted on Vercel:
 
-https://github.com/alexdhljl/eventflox-ai-final
+https://eventflox-ai-final.vercel.app
