@@ -1,0 +1,432 @@
+:root {
+  color: #172033;
+  background: #f5f7fb;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #d7deea;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  padding: 10px 12px;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #1f6feb;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.12);
+}
+
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  max-width: 1440px;
+  margin: 0 auto 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #52708f;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-size: 42px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 12px;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.lede {
+  max-width: 760px;
+  color: #526171;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.status-pill,
+.notice {
+  border: 1px solid #d7deea;
+  border-radius: 999px;
+  background: #fff;
+  color: #172033;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.notice {
+  max-width: 1440px;
+  margin: 0 auto 16px;
+  border-radius: 8px;
+  background: #fff7e6;
+  color: #7a4d00;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.sidebar-panel,
+.main-panel,
+.tool-panel {
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.sidebar-panel {
+  padding: 16px;
+  position: sticky;
+  top: 16px;
+}
+
+.main-panel {
+  padding: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.panel-heading h2,
+.panel-heading h3 {
+  margin: 0;
+}
+
+.panel-heading span {
+  color: #6c7a89;
+  font-size: 13px;
+}
+
+.event-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.event-button {
+  width: 100%;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #172033;
+  padding: 12px;
+  text-align: left;
+}
+
+.event-button strong,
+.event-button span {
+  display: block;
+}
+
+.event-button span {
+  margin-top: 5px;
+  color: #657386;
+  font-size: 13px;
+}
+
+.event-button.active {
+  border-color: #1f2937;
+  background: #1f2937;
+  color: #fff;
+}
+
+.event-button.active span {
+  color: #dce5ef;
+}
+
+.stacked-form,
+.message-form {
+  display: grid;
+  gap: 10px;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.inline-form button,
+.primary-button,
+.secondary-button,
+.checked-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 800;
+}
+
+.primary-button,
+.inline-form button {
+  background: #172033;
+  color: #fff;
+}
+
+.secondary-button {
+  border: 1px solid #d7deea;
+  background: #fff;
+  color: #172033;
+}
+
+.checked-button {
+  background: #e8f7ee;
+  color: #116b37;
+}
+
+.event-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.event-header p {
+  color: #526171;
+  line-height: 1.55;
+}
+
+.share-card {
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 14px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.share-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 6px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.metrics-row div {
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 14px;
+}
+
+.metrics-row strong,
+.metrics-row span {
+  display: block;
+}
+
+.metrics-row strong {
+  font-size: 24px;
+  color: #0f172a;
+}
+
+.metrics-row span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 16px;
+}
+
+.tool-panel {
+  padding: 16px;
+}
+
+.tool-panel.wide {
+  grid-row: span 2;
+}
+
+.message-list,
+.task-list,
+.guest-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.message-card,
+.task-card,
+.guest-card,
+.submission {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.message-card p,
+.task-card p,
+.submission p {
+  margin: 6px 0;
+  color: #3a4656;
+  line-height: 1.5;
+}
+
+.message-card span,
+.task-card span,
+.guest-card span {
+  color: #66758a;
+  font-size: 12px;
+}
+
+.task-card {
+  display: grid;
+  gap: 10px;
+}
+
+.submission {
+  background: #eef6ff;
+}
+
+.guest-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guest-card strong,
+.guest-card span {
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .topbar,
+  .workspace-grid,
+  .event-header,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .sidebar-panel {
+    position: static;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .metrics-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  .metrics-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .guest-card,
+  .inline-form {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .share-card img {
+    width: 136px;
+    height: 136px;
+  }
+}
