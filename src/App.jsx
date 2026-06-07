@@ -176,6 +176,7 @@ export default function App() {
         "events",
         {
           ...eventForm,
+          date: eventForm.date || null,
           slug: makeSlug(eventForm.title),
           status: "planning",
         },
